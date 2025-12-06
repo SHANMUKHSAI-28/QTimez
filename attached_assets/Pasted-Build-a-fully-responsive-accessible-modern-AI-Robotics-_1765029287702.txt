@@ -1,0 +1,138 @@
+Build a fully responsive, accessible, modern AI & Robotics company website inspired by the “Artifice AI Robotics” theme.
+The layout must be clean, futuristic, and visually similar to high-end tech websites. Use a dark blue/teal sci-fi palette.
+
+PAGE REQUIREMENTS
+
+1. Hero Section:
+
+Full-width banner with futuristic AI robot image
+
+Large heading: “Empowering the Future With AI & Robotics”
+
+Sub-text describing services
+
+CTA buttons: “Explore More” and “Watch Video”
+
+Ensure color contrast for accessibility (WCAG AA)
+
+2. Services Section:
+
+Grid of service cards (AI integration, ML solutions, robotics automation, computer vision, etc.)
+
+Icons must be simple, accessible, and labeled with aria-labels
+
+Hover animations must remain accessible with reduced-motion support
+
+3. Company Story Section:
+
+Two-column layout with an image and text
+
+Include mission, vision, and values
+
+Use semantic HTML structure: <section>, <article>, <header>, <nav>, <footer>
+
+4. Why Choose Us Section:
+
+4 cards highlighting strengths: Easy Integration, New Technology, Reliability, Security
+
+Icons and high-contrast headings
+
+Support for screen readers
+
+5. Previous / Next Navigation (Carousel-like tabs):
+
+Add a section with Next → and ← Previous navigation buttons
+
+Buttons must be keyboard accessible (tabindex="0")
+
+Add aria-labels: "Go to previous section" and "Go to next section"
+
+6. Footer:
+
+Dark footer with 3 columns:
+
+About Company
+
+Quick Links
+
+Social Media Icons (Instagram, LinkedIn, GitHub, Twitter)
+
+Social icons must be labeled for screen readers:
+
+aria-label="Visit our Instagram"
+
+aria-label="Visit our LinkedIn"
+
+Include copyright text
+
+Add contact email + phone number
+
+Footer must be responsive and collapse into a vertical layout on mobile
+
+ACCESSIBILITY REQUIREMENTS
+
+WCAG-compliant color contrast
+
+All images must include descriptive alt text
+
+Navigation must be fully keyboard operable
+
+Add aria-labels for all icons and interactive elements
+
+Provide logical heading hierarchy (H1 → H2 → H3)
+
+Avoid flashing animations
+
+Provide reduced-motion settings (prefers-reduced-motion)
+
+Buttons and links must have focus styles
+
+RESPONSIVE BEHAVIOR
+
+Mobile-first layout
+
+Stacked sections on small screens
+
+Auto-resize hero image and text
+
+Services convert from 4-column → 2-column → 1-column
+
+Footer converts to vertical stacked layout
+
+Navigation and previous/next buttons must reposition smoothly for mobile
+
+STYLE DIRECTION
+
+Futuristic, sleek, premium robotics look
+
+Neon teal accents on a dark background
+
+Clean typography (Roboto, Inter, or similar)
+
+Smooth transitions (no harsh shadows)
+
+Professional brand feel similar to enterprise AI companies
+
+ADDITIONAL FEATURES
+
+Sticky top navigation bar
+
+Smooth scrolling
+
+Optional subtle particle animation background
+
+Fully optimized for SEO
+
+Fast load time
+
+Add a “Back to Top” floating button
+
+Add testimonials slider (optional)
+
+OUTPUT FORMAT
+
+Complete homepage layout
+
+With sections, components, and text placeholders
+
+Provide clean, production-ready HTML/CSS structure (or builder blocks depending on tool)
