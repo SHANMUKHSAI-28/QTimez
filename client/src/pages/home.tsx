@@ -21,6 +21,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { TiltCard } from "@/components/ui/tilt-card";
+import { ParticleBackground } from "@/components/ui/particle-background";
 import heroImage from "@assets/generated_images/futuristic_ai_robot_hero_image.png";
 import storyImage from "@assets/generated_images/modern_robotics_lab.png";
 
@@ -103,50 +105,75 @@ const Navbar = () => {
 // Hero Section
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 perspective-1000">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Futuristic AI Robot" 
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <motion.div 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+          className="w-full h-full"
+        >
+          <img 
+            src={heroImage} 
+            alt="Futuristic AI Robot" 
+            className="w-full h-full object-cover object-center opacity-60"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <ParticleBackground />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+          initial={{ opacity: 0, x: -50, rotateY: 20 }}
+          animate={{ opacity: 1, x: 0, rotateY: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="space-y-6 transform-style-3d"
         >
-          <div className="inline-block px-3 py-1 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-3 py-1 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm"
+          >
             <span className="text-primary text-xs font-bold tracking-widest uppercase">Next Gen Robotics</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            Empowering the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 text-glow">Future</span> With <br />
-            AI & Robotics
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Empowering</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 text-glow filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]">The Future</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-lg">
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-muted-foreground text-lg md:text-xl max-w-lg border-l-2 border-primary/50 pl-4"
+          >
             We bridge the gap between biological intelligence and mechanical precision. 
             Experience the next evolution of automation.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 rounded-none clip-path-slant">
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-wrap gap-4 pt-4"
+          >
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,255,0.4)]">
               Explore More
             </Button>
-            <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 text-lg px-8 rounded-none clip-path-slant">
+            <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300">
               Watch Video
             </Button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-20" />
     </section>
   );
 };
@@ -161,33 +188,43 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-background relative">
+    <section id="services" className="py-24 bg-background relative z-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-16 text-center max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center max-w-2xl mx-auto"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Capabilities</h2>
           <p className="text-muted-foreground">Cutting-edge solutions designed to accelerate your transition into the autonomous era.</p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
+              className="perspective-1000"
             >
-              <Card className="bg-card/50 border-primary/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] group h-full">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <service.icon className="w-6 h-6" aria-label={`${service.title} icon`} />
-                  </div>
-                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground group-hover:text-foreground/80 transition-colors">
-                    {service.desc}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <TiltCard className="h-full">
+                <Card className="bg-card/40 backdrop-blur-sm border-primary/20 hover:border-primary/60 transition-colors h-full overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <CardHeader className="relative z-10">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-primary/20 group-hover:border-primary/50 shadow-[0_0_15px_rgba(0,255,255,0.1)] group-hover:shadow-[0_0_25px_rgba(0,255,255,0.3)]">
+                      <service.icon className="w-7 h-7 text-primary" aria-label={`${service.title} icon`} />
+                    </div>
+                    <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors">
+                      {service.desc}
+                    </CardDescription>
+                  </CardHeader>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                </Card>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
@@ -198,27 +235,55 @@ const Services = () => {
 
 // Story Section
 const CompanyStory = () => {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0.2, 0.5], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+
   return (
-    <section id="story" className="py-24 bg-muted/30 relative overflow-hidden">
+    <section id="story" className="py-24 bg-muted/10 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
+            style={{ scale, opacity }}
+            className="relative perspective-1000"
           >
-            <div className="absolute -inset-4 bg-primary/20 rounded-lg blur-2xl opacity-50" />
-            <img 
-              src={storyImage} 
-              alt="Artifice Robotics Laboratory" 
-              className="relative rounded-lg border border-primary/20 shadow-2xl w-full object-cover h-[400px] md:h-[500px]"
-            />
+            <div className="absolute -inset-4 bg-primary/20 rounded-lg blur-2xl opacity-50 animate-pulse" />
+            <motion.div
+              whileHover={{ rotateY: 5, rotateX: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="transform-style-3d"
+            >
+              <img 
+                src={storyImage} 
+                alt="Artifice Robotics Laboratory" 
+                className="relative rounded-lg border border-primary/20 shadow-2xl w-full object-cover h-[400px] md:h-[500px] z-10"
+              />
+              {/* Floating tech element */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-8 -bottom-8 bg-card/90 backdrop-blur-md p-6 rounded-lg border border-primary/30 shadow-xl z-20 hidden md:block"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">System Status</p>
+                    <p className="font-mono text-primary font-bold">OPTIMAL</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
           
-          <div className="space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Forging the Future</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Forging the <span className="text-primary">Future</span></h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 At Artifice AI, we believe that the synthesis of artificial intelligence and robotics is not just an industrial upgrade—it is the next step in human evolution.
               </p>
@@ -228,16 +293,16 @@ const CompanyStory = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold text-primary">Mission</h3>
+              <div className="space-y-2 group">
+                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Mission</h3>
                 <p className="text-sm text-muted-foreground">To democratize advanced robotics for every industry.</p>
               </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold text-primary">Vision</h3>
+              <div className="space-y-2 group">
+                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Vision</h3>
                 <p className="text-sm text-muted-foreground">A world where humans and machines collaborate seamlessly.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
