@@ -1,30 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { 
-  Cpu, 
-  Bot, 
-  BrainCircuit, 
-  Eye, 
-  ShieldCheck, 
-  Zap, 
-  Settings, 
-  ArrowRight, 
-  ArrowLeft, 
-  Menu, 
-  X, 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  ChevronUp
-} from "lucide-react";
+import { Cloud, Code, BarChart, Monitor, CheckCircle, Trophy, Users, Clock, Menu, ArrowLeft, ArrowRight, Github, Linkedin, Twitter, Instagram, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { ParticleBackground } from "@/components/ui/particle-background";
-import heroImage from "@assets/generated_images/futuristic_ai_robot_hero_image.png";
-import storyImage from "@assets/generated_images/modern_robotics_lab.png";
+import heroImage from "@assets/generated_images/abstract_digital_future_hero_background.png";
+import storyImage from "@assets/generated_images/modern_tech_consulting_office.png";
 
 // Navigation Component
 const Navbar = () => {
@@ -52,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary text-glow">
-          ARTIFICE<span className="text-foreground">.AI</span>
+          COSMORYZE
         </a>
 
         {/* Desktop Nav */}
@@ -116,7 +99,7 @@ const Hero = () => {
         >
           <img 
             src={heroImage} 
-            alt="Futuristic AI Robot" 
+            alt="Digital Future Abstract" 
             className="w-full h-full object-cover object-center opacity-60"
           />
         </motion.div>
@@ -138,12 +121,12 @@ const Hero = () => {
             transition={{ delay: 0.2 }}
             className="inline-block px-3 py-1 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-primary text-xs font-bold tracking-widest uppercase">Next Gen Robotics</span>
+            <span className="text-primary text-xs font-bold tracking-widest uppercase">Digital Future</span>
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Empowering</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 text-glow filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]">The Future</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Empowering Your</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 text-glow filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]">Digital Future</span>
           </h1>
           
           <motion.p 
@@ -152,8 +135,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-muted-foreground text-lg md:text-xl max-w-lg border-l-2 border-primary/50 pl-4"
           >
-            We bridge the gap between biological intelligence and mechanical precision. 
-            Experience the next evolution of automation.
+            At Cosmoryze, we craft technology solutions that address your unique business needs, helping you thrive in the digital era.
           </motion.p>
           
           <motion.div 
@@ -163,10 +145,10 @@ const Hero = () => {
             className="flex flex-wrap gap-4 pt-4"
           >
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,255,0.4)]">
-              Explore More
+              Discover More
             </Button>
             <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300">
-              Watch Video
+              Our Services
             </Button>
           </motion.div>
         </motion.div>
@@ -181,10 +163,10 @@ const Hero = () => {
 // Services Section
 const Services = () => {
   const services = [
-    { title: "AI Integration", icon: BrainCircuit, desc: "Seamlessly embed neural networks into your existing infrastructure." },
-    { title: "ML Solutions", icon: Cpu, desc: "Adaptive machine learning algorithms that evolve with your data." },
-    { title: "Robotics Automation", icon: Bot, desc: "High-precision mechanical systems for industrial efficiency." },
-    { title: "Computer Vision", icon: Eye, desc: "Advanced optical recognition for autonomous navigation and QC." },
+    { title: "Cloud Infrastructure", icon: Cloud, desc: "Scalable, secure, and efficient solutions to optimize performance while reducing costs." },
+    { title: "Custom Software", icon: Code, desc: "Tailored software solutions designed to meet your unique business needs." },
+    { title: "Digital Transformation", icon: Monitor, desc: "Implementing technologies to streamline operations and enhance customer experiences." },
+    { title: "Data Analytics", icon: BarChart, desc: "Unlock insights from your data to drive informed decision-making and growth." },
   ];
 
   return (
@@ -196,8 +178,8 @@ const Services = () => {
           viewport={{ once: true }}
           className="mb-16 text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Capabilities</h2>
-          <p className="text-muted-foreground">Cutting-edge solutions designed to accelerate your transition into the autonomous era.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
+          <p className="text-muted-foreground">Cosmoryze specializes in technology consulting services that accelerate your business. From cloud solutions to software development, we help you navigate the complex tech landscape.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -255,7 +237,7 @@ const CompanyStory = () => {
             >
               <img 
                 src={storyImage} 
-                alt="Artifice Robotics Laboratory" 
+                alt="Cosmoryze Tech Consulting" 
                 className="relative rounded-lg border border-primary/20 shadow-2xl w-full object-cover h-[400px] md:h-[500px] z-10"
               />
               {/* Floating tech element */}
@@ -268,7 +250,7 @@ const CompanyStory = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">System Status</p>
-                    <p className="font-mono text-primary font-bold">OPTIMAL</p>
+                    <p className="font-mono text-primary font-bold">ONLINE</p>
                   </div>
                 </div>
               </motion.div>
@@ -283,23 +265,23 @@ const CompanyStory = () => {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Forging the <span className="text-primary">Future</span></h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Innovating with <span className="text-primary">Precision</span></h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                At Artifice AI, we believe that the synthesis of artificial intelligence and robotics is not just an industrial upgrade—it is the next step in human evolution.
+                At Cosmoryze, we are a forward-thinking tech consulting firm dedicated to delivering high-impact digital solutions for businesses of all sizes.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Our mission is to create autonomous systems that amplify human potential, solving complex problems with speed and precision previously thought impossible.
+                With deep expertise in cutting-edge technologies and a relentless focus on innovation, we help our clients navigate the complexities of the digital landscape.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-2 group">
-                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Mission</h3>
-                <p className="text-sm text-muted-foreground">To democratize advanced robotics for every industry.</p>
+                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Strategy</h3>
+                <p className="text-sm text-muted-foreground">Cloud Strategy & Enterprise Migration solutions.</p>
               </div>
               <div className="space-y-2 group">
-                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Vision</h3>
-                <p className="text-sm text-muted-foreground">A world where humans and machines collaborate seamlessly.</p>
+                <h3 className="text-xl font-bold text-primary group-hover:translate-x-2 transition-transform">Automation</h3>
+                <p className="text-sm text-muted-foreground">DevOps & Automation for streamlined operations.</p>
               </div>
             </div>
           </motion.div>
@@ -312,16 +294,16 @@ const CompanyStory = () => {
 // Why Choose Us
 const WhyChooseUs = () => {
   const features = [
-    { title: "Easy Integration", icon: Settings, text: "Plug-and-play modules designed for universal compatibility." },
-    { title: "New Technology", icon: Zap, text: "Always ahead of the curve with the latest neural architectures." },
-    { title: "Reliability", icon: ShieldCheck, text: "Industrial-grade durability tested in extreme environments." },
-    { title: "Security", icon: Bot, text: "Military-grade encryption for all autonomous communications." }, // Reusing Bot icon or finding generic Lock
+    { title: "10+ Years", icon: Clock, text: "Years of experience delivering excellence in tech consulting." },
+    { title: "20+ Techs", icon: Trophy, text: "Experts in over 20+ cutting-edge technologies." },
+    { title: "5000+ Hours", icon: Users, text: "Hours of consulting provided to satisfied clients." },
+    { title: "900+ Reviews", icon: CheckCircle, text: "Positive client reviews reflecting our dedication." },
   ];
 
   return (
     <section id="why-us" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Artifice?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Cosmoryze?</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, idx) => (
@@ -350,10 +332,10 @@ const WhyChooseUs = () => {
 const GalleryCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
-    { title: "Project Alpha", desc: "Autonomous Drone Swarm" },
-    { title: "Project Beta", desc: "Deep Sea Exploration Unit" },
-    { title: "Project Gamma", desc: "Micro-Surgery Assistant" },
-    { title: "Project Delta", desc: "Atmospheric Processor" },
+    { title: "Web Development", desc: "Robust & Scalable Web Apps" },
+    { title: "UI/UX Design", desc: "Intuitive & Engaging Interfaces" },
+    { title: "E-Commerce", desc: "Seamless Online Shopping Experiences" },
+    { title: "Data Analytics", desc: "Insightful Business Intelligence" },
   ];
 
   const nextSlide = () => setActiveIndex((prev) => (prev + 1) % items.length);
@@ -427,13 +409,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary mb-6 block">
-              ARTIFICE<span className="text-foreground">.AI</span>
+              COSMORYZE
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Redefining the boundaries of what machines can do. We build the intelligence that powers tomorrow.
+              Solutions That Drive Innovation. Partner with us for solutions that position your business for success.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>contact@artifice.ai</p>
+              <p>contact@cosmoryze.com</p>
               <p>+1 (555) 012-3456</p>
             </div>
           </div>
@@ -475,7 +457,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            © 2024 Artifice AI Robotics. All rights reserved.
+            © 2024 Cosmoryze. All rights reserved.
           </p>
           <Button 
             variant="ghost" 
