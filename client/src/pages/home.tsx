@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { ParticleBackground } from "@/components/ui/particle-background";
-import heroImage from "@assets/generated_images/abstract_digital_future_hero_background.png";
+import heroImage from "@assets/generated_images/futuristic_ai_robot_hero_image.png";
 import storyImage from "@assets/generated_images/modern_tech_consulting_office.png";
 
 // Navigation Component
@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary text-glow">
-          COSMORYZE
+          QTmez
         </a>
 
         {/* Desktop Nav */}
@@ -135,7 +135,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-muted-foreground text-lg md:text-xl max-w-lg border-l-2 border-primary/50 pl-4"
           >
-            At Cosmoryze, we craft technology solutions that address your unique business needs, helping you thrive in the digital era.
+            At QTmez, we craft technology solutions that address your unique business needs, helping you thrive in the digital era.
           </motion.p>
           
           <motion.div 
@@ -179,7 +179,7 @@ const Services = () => {
           className="mb-16 text-center max-w-2xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
-          <p className="text-muted-foreground">Cosmoryze specializes in technology consulting services that accelerate your business. From cloud solutions to software development, we help you navigate the complex tech landscape.</p>
+          <p className="text-muted-foreground">QTmez specializes in technology consulting services that accelerate your business. From cloud solutions to software development, we help you navigate the complex tech landscape.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -237,7 +237,7 @@ const CompanyStory = () => {
             >
               <img 
                 src={storyImage} 
-                alt="Cosmoryze Tech Consulting" 
+                alt="QTmez Tech Consulting" 
                 className="relative rounded-lg border border-primary/20 shadow-2xl w-full object-cover h-[400px] md:h-[500px] z-10"
               />
               {/* Floating tech element */}
@@ -267,7 +267,7 @@ const CompanyStory = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Innovating with <span className="text-primary">Precision</span></h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                At Cosmoryze, we are a forward-thinking tech consulting firm dedicated to delivering high-impact digital solutions for businesses of all sizes.
+                At QTmez, we are a forward-thinking tech consulting firm dedicated to delivering high-impact digital solutions for businesses of all sizes.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 With deep expertise in cutting-edge technologies and a relentless focus on innovation, we help our clients navigate the complexities of the digital landscape.
@@ -303,7 +303,7 @@ const WhyChooseUs = () => {
   return (
     <section id="why-us" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Cosmoryze?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose QTmez?</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, idx) => (
@@ -409,13 +409,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary mb-6 block">
-              COSMORYZE
+              QTmez
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Solutions That Drive Innovation. Partner with us for solutions that position your business for success.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>contact@cosmoryze.com</p>
+              <p>contact@qtmez.com</p>
               <p>+1 (555) 012-3456</p>
             </div>
           </div>
@@ -457,7 +457,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            © 2024 Cosmoryze. All rights reserved.
+            © 2024 QTmez. All rights reserved.
           </p>
           <Button 
             variant="ghost" 
