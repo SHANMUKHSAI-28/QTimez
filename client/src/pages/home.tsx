@@ -103,8 +103,8 @@ const Hero = () => {
             className="w-full h-full object-cover object-center opacity-60"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        {/* Removed potentially conflicting gradients */}
+        <div className="absolute inset-0 bg-background/50" />
         <ParticleBackground />
       </div>
 
@@ -142,7 +142,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap gap-4 pt-4"
+            className="flex flex-wrap gap-4 pt-4 relative z-50"
           >
             <Button 
               size="lg" 
