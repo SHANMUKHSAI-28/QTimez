@@ -1,89 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Cloud, Code, BarChart, Monitor, CheckCircle, Trophy, Users, Clock, Menu, ArrowLeft, ArrowRight, Github, Linkedin, Twitter, Instagram, ChevronUp } from "lucide-react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 import heroImage from "@assets/generated_images/futuristic_ai_robot_hero_image.png";
 import storyImage from "@assets/generated_images/modern_tech_consulting_office.png";
 
-// Navigation Component
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Story", href: "#story" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Gallery", href: "#gallery" },
-  ];
-
-  return (
-    <nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md border-b border-primary/20" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary text-glow">
-          QTimez
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="text-sm font-medium hover:text-primary transition-colors relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-            </a>
-          ))}
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-none clip-path-slant">
-            Get Started
-          </Button>
-        </div>
-
-        {/* Mobile Nav */}
-        <div className="md:hidden">
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="h-6 w-6 text-primary" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-l border-primary/20">
-              <div className="flex flex-col gap-6 mt-10">
-                {navLinks.map((link) => (
-                  <a 
-                    key={link.name} 
-                    href={link.href} 
-                    className="text-lg font-display font-medium hover:text-primary transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <Button className="w-full bg-primary text-primary-foreground">Get Started</Button>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </nav>
-  );
-};
+// Navigation uses shared Navbar component
 
 // Hero Section
 const Hero = () => {
@@ -144,21 +73,23 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
             className="flex flex-wrap gap-4 pt-4 relative z-50"
           >
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,255,0.4)]"
-              onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Discover More
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary/50 text-primary hover:bg-primary/10 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Our Services
-            </Button>
+            <Link href="/story">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,255,0.4)]"
+              >
+                Discover More
+              </Button>
+            </Link>
+            <Link href="/services">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary/50 text-primary hover:bg-primary/10 text-lg px-8 rounded-none clip-path-slant hover:scale-105 transition-transform duration-300"
+              >
+                Our Services
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -406,81 +337,7 @@ const GalleryCarousel = () => {
   );
 };
 
-// Footer
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  return (
-    <footer className="bg-background border-t border-white/10 pt-16 pb-8 relative">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <a href="#" className="text-2xl font-display font-bold tracking-wider text-primary mb-6 block">
-              QTimez
-            </a>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Solutions That Drive Innovation. Partner with us for solutions that position your business for success.
-            </p>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <p>contact@qtimez.com</p>
-              <p>+1 (555) 012-3456</p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {["Services", "About Us", "Careers", "Privacy Policy", "Terms of Service"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold mb-6">Connect</h3>
-            <div className="flex gap-4">
-              {[
-                { icon: Github, label: "Visit our Github" },
-                { icon: Linkedin, label: "Visit our LinkedIn" },
-                { icon: Twitter, label: "Visit our Twitter" },
-                { icon: Instagram, label: "Visit our Instagram" }
-              ].map((social, idx) => (
-                <a 
-                  key={idx}
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground text-center md:text-left">
-            © 2024 QTimez. All rights reserved.
-          </p>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={scrollToTop}
-            className="text-muted-foreground hover:text-primary"
-          >
-            Back to Top <ChevronUp className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-      </div>
-    </footer>
-  );
-};
+// Footer uses shared Footer component
 
 export default function Home() {
   return (
